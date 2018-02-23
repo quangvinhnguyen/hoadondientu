@@ -328,7 +328,7 @@ h4.post-title {
 .flexslider, .flexslider .slides li { min-width: 100%; }
 .flexslider .slides {zoom: 1; margin: 0; }
 .flexslider .slides > li { display: none; }
-.flexslider, .flexslider .slides li, .flexslider .slides > li > a { height: 343px; }
+.flexslider, .flexslider .slides li, .flexslider .slides > li > a { height: 500px; }
 
 .pull-center .flexslider, .pull-center .flexslider .slides li, .pull-center .flexslider .slides > li > a { height: 420px; }
 

@@ -1,79 +1,50 @@
-@extends('news.layout.layout')
+@extends('news.layout.layoutforhomepage')
 
 @section('content')
 <section class="row">
-<article class="six column">
-		<div class="post-image zoom-out">	 
+<article class="six column text-center">
+<h2 >Đăng ký</h2>
+		<div class="post-image">	 
 			<figure>
-				<a href=""><img src="images/DangKy.png" alt="" style="width:300px;height:220px"></a>
+				<a href=""><img src="images/DangKy.png" alt=""></a>
 			</figure>
 		</div>
 		<div class="post-container">
-			<h2 >Các bước đăng ký Hóa đơn điện tử</h2>
+			<h4 >Các bước đăng ký Hóa đơn điện tử</h4>
 		</div>
 </article>
-<article class="six column">
-		<div class="post-image zoom-out">	 
+<article class="six column text-center">
+<h2 >Nghiệp vụ</h2>
+		<div class="post-image">	 
 			<figure>
-				<a href=""><img src="images/NghiepVuPM.png" alt="" style="width:300px;height:220px"></a>
+				<a href=""><img src="images/NghiepVuPM.png" alt="" </a>
 			</figure>
 		</div>
 		<div class="post-container">
-			<h2 >Thiết lập và hóa đơn nhanh chóng dễ dàng</h2>
+			<h4>Thiết lập và hóa đơn nhanh chóng dễ dàng</h4>
 		</div>
 </article>
- 	<!-- @foreach($cates as $cate)
-		<article class="six column">
-			<h4 class="cat-title"><a href="category/{{ $cate->slug }}">{{ $cate->name }} ( {{ $cate->posts->where('status',1)->count() }} )</a></h4>
-			<?php 
-				$posts = $cate->posts->where('status',1)->sortByDesc('created_at')->take(4);
-				$post_1 = $posts->shift();
-			?>
-			{{-- Neu co 1 bai viet --}}
-			@if($post_1)
-				<div class="post-image zoom-out">
-					@if($post_1->feture) 
-						<?php $image = $post_1->feture;?>
-					@else 
-						<?php $image = 'http://placehold.it/300x220'; ?>
-					@endif
-					<figure><a href="post/{{$post_1->slug}}.html"><img src="{{ $image }}" alt="" style="width:300px;height:220px"></a>
-					</figure>
-				</div>
-				<div class="post-container">
-					<a href="post/{{$post_1->slug}}.html"><h2 class="post-title">{{ $post_1->title }}</h2></a>
-					<div class="post-content">
-						<p>{{ $post_1->description }}</p>
-					</div>
-				</div>
-				<div class="post-meta">
-					<span class="view"><a href="post/{{$post_1->slug}}.html">{{ $post_1->view }} views</a></span>
-					<span class="author"><a href="author/{{ $post_1->admin->name }}">{{ $post_1->admin->name }}</a></span>
-					<span class="date"><a href="#">{{date('G:i d-m-Y', strtotime($post_1->created_at)) }}</a></span>
-				</div>
-			@endif
-				@foreach( $posts->all() as $post)
-				<div class="other-posts speia">
-					<ul class="no-bullet ">
-						<li class="opac">
-							@if($post->feture)
-								<?php $image = $post->feture; ?>
-							@else
-								<?php $image = 'http://placehold.it/50x50'; ?>
-							@endif
-							<a href="#"><img src="{{$image}}" alt="image" style="width:50px;height:50px"></a>
-							<h3 class="post-title"><a href="post/{{$post['slug'] }}.html">{{$post['title'] }}</a></h3>
-							<span class="date"><a href="#">{{date('G:i d-m-Y', strtotime($post['created_at'])) }}</a></span>
-						</li>
-					</ul>
-				</div>
-				@endforeach
-		</article>
-	@endforeach -->
+<article class="six column text-center">
+<h2 class="" >Hổ trợ</h2>
+		<div class="post-image">	 
+			<figure>
+				<a href=""><img src="images/tongdai.png" alt="" style="max-height:203px"></a>
+			</figure>
+		</div>
+		<div class="post-container">
+		<h4 class="" >Tư vấn chuyên nghiệp và thân thiện</h4>
+		</div>
+</article>
+
+
 </section>
 <!-- End Carousel Posts -->
 <!-- Gallery Posts -->
 <div class="clearfix mb25 oh">
+	<a href="category/video"><h4 class="cat-title">Văn bản ban hành </h4></a>
+	</div>
+</div>
+<!-- <div class="clearfix mb25 oh">
 	<a href="category/video"><h4 class="cat-title">Video Nổi Bật</h4></a>
 	<div class="carousel-container">
 		<div class="carousel-navigation">
@@ -92,7 +63,7 @@
 			@endforeach
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- End Gallery Posts -->
 @endsection
 @section('js')
