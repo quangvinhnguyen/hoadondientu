@@ -45,6 +45,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::post('update/{id}', 'PostController@postUpdate');
         Route::get('delete/{id}', 'PostController@getDelete');
     });
+
+    Route::prefix('vanban')->group(function () {
+        Route::get('/', 'vanbanController@getList')->name('list-post');
+        Route::get('add', 'vanbanController@getAdd');
+        Route::post('add', 'vanbanController@postAdd');
+        Route::get('update/{id}', 'vanbanController@getUpdate');
+        Route::post('update/{id}', 'vanbanController@postUpdate');
+        Route::get('delete/{id}', 'vanbanController@getDelete');
+    });
     
     /* Group for admin */
     Route::middleware(['role'])->group(function () {
@@ -74,3 +83,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         });
     });
 });
+Route::get('test','vanbanController@getdata');
