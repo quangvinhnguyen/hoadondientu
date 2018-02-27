@@ -45,11 +45,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::post('update/{id}', 'PostController@postUpdate');
         Route::get('delete/{id}', 'PostController@getDelete');
     });
-
+    /*Group vanban*/
     Route::prefix('vanban')->group(function () {
-        Route::get('/', 'vanbanController@getList')->name('list-post');
+        Route::get('/', 'vanbanController@getList')->name('list-vanban');
         Route::get('add', 'vanbanController@getAdd');
-        Route::post('add', 'vanbanController@postAdd');
+        Route::post('add', 'vanbanController@vanbanAdd');
         Route::get('update/{id}', 'vanbanController@getUpdate');
         Route::post('update/{id}', 'vanbanController@postUpdate');
         Route::get('delete/{id}', 'vanbanController@getDelete');

@@ -16,12 +16,12 @@ class Vanban extends Migration
         Schema::create('vanban', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sokh')->unique();
-            $table->string('trichyeunoidung')->unique();
-            $table->date('ngaybanhanh')->nullable();
-            $table->string('hinhthucvanban')->unique();
-            $table->string('coquanbanhanh')->unique();
-            $table->string('nguoikyduyet')->unique();
-            $table->string('tailieu')->unique();
+            $table->string('trichyeunoidung')->nullable();
+            $table->string('ngaybanhanh')->nullable();
+            $table->string('hinhthucvanban')->nullable();
+            $table->string('coquanbanhanh')->nullable();
+            $table->string('nguoikyduyet')->nullable();
+            $table->string('tailieu')->nullable();
       
             $table->timestamps();
         });

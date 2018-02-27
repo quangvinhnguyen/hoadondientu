@@ -54,6 +54,19 @@
             </li>
 
             <li>
+                <a href="admin/vanban"><i class="fa fa-table fa-fw"></i> Văn Bản <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/vanban">Danh Sách Văn Bản</a>
+                    </li>
+                    <li>
+                        <a href="admin/vanban/add">Thêm  Văn Bản</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
                 <a href="admin/author"><i class="fa fa-users fa-fw"></i> Quản lý Author</a>
             </li>
             @endif
