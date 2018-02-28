@@ -15,7 +15,7 @@ class Vanban extends Migration
     {
         Schema::create('vanban', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sokh')->unique();
+            $table->string('sokh')->nullable();
             $table->string('trichyeunoidung')->nullable();
             $table->string('ngaybanhanh')->nullable();
             $table->string('hinhthucvanban')->nullable();

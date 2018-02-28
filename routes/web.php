@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::get('add', 'vanbanController@getAdd');
         Route::post('add', 'vanbanController@vanbanAdd');
         Route::get('update/{id}', 'vanbanController@getUpdate');
-        Route::post('update/{id}', 'vanbanController@postUpdate');
+        Route::post('update/{id}', 'vanbanController@vanbanUpdate');
         Route::get('delete/{id}', 'vanbanController@getDelete');
     });
     

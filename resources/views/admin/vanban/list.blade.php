@@ -30,9 +30,12 @@
                             <th>Cơ quan ban hành</th>
                             <th>Người ký duyệt</th>
                             <th>Tệp đính kèm </th>
+                            <th> Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
+                    
+                   
                         @foreach($vanbans as $vanban)
                         <tr class="odd gradeX">
                             <td>{{ $vanban->id }}</td>
@@ -44,9 +47,15 @@
                             <td>{{ $vanban->hinhthucvanban }}</td>
                             <td>{{ $vanban->coquanbanhanh }}</td>
                             <td>{{ $vanban->nguoikyduyet }}</td>
-                            <td>{{ $vanban->tailieu }}</td>
                             <td>
-                                @if(Auth::user()->id == $vanban->user_id)
+                                @if($vanban->tailieu)
+                                TRUE
+                                @else
+                                FALSE
+                                @endif
+                            </td>
+                            <td>
+                                @if(Auth::user()->name == "admin")
                                 <a href="admin/vanban/update/{{$vanban->id}}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa 
                                 </a>
@@ -91,111 +100,14 @@
 </div>
 @endsection
 @section('script')
- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function() {
-        $('#example').DataTable({'iDisplayLength': '50',"order": [[ 0, "desc" ]]});
-        @if(Auth::user()->role=='admin')
-        $('.status').css('cursor', 'pointer');
-         $('.hot').css('cursor', 'pointer');
-        /*Changer Status */
-        $('.status').click(function(event) {
-            id = $(this).parent().find("td:eq(0)").text();
-            var status = $(this).find('i.fa-ban').text();
-            var div = $(this);
-            if(status){
-                status = 1;
-            } else status = 0;
-            $.ajax({
-                url: 'admin/vanban/updateStatus',
-                type: 'Put',
-                data: {"id": id,"status":status,"_token": "{{ csrf_token() }}"},
-            })
-            .done(function(data) {
-                if(data=='ok'){
-                    $.alert("Thay đổi thành công.",{
-                        autoClose: true,  closeTime: 3000, type: 'success',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Thành Công',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                    if(status == 1){
-                        div.html('<i class="fa fa-check-square-o true" aria-hidden="true"> On</i>');
-                    } else  div.html('<i class="fa fa-ban false" aria-hidden="true"> Off</i>');
-                } else {
-                    $.alert(data,{
-                        autoClose: true,  closeTime: 3000, type: 'danger',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Lỗi',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                }
-            })
-            .fail(function() {
-                console.log("error");
-            })
-        });
-
-        /* Changer hot*/
-        $('.hot').click(function(event) {
-            id = $(this).parent().find("td:eq(0)").text();
-            var hot = $(this).find('i.fa-ban').text();
-            var divn = $(this);
-            $('.hot').css('cursor', 'pointer');
-            if(hot){
-                hot = 1;
-            } else hot = 0;
-            $.ajax({
-                url: 'admin/vanban/updateHot',
-                type: 'Put',
-                data: {"id": id,"hot":hot,"_token": "{{ csrf_token() }}"},
-            })
-            .done(function(data) {
-                if(data=='ok'){
-                    $.alert("Thay đổi thành công.",{
-                        autoClose: true,  closeTime: 3000, type: 'success',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Thành Công',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                    if(hot == 1){
-                        divn.html('<i class="fa fa-check-square-o true" aria-hidden="true"> On</i>');
-                    } else  divn.html('<i class="fa fa-ban false" aria-hidden="true"> Off</i>');
-                } else {
-                    $.alert(data,{
-                        autoClose: true,  closeTime: 3000, type: 'danger',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Lỗi',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                }
-            })
-            .fail(function() {
-                console.log("error");
-            })
-        });
-        @endif
         $('#modal-delete').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) 
           var iddel = button.data('id')
           var modal = $(this)
           modal.find('.modal-body #del-id').html(iddel);
-          modal.find('.modal-body #delete').attr('href', 'admin/vanban/delete/'+iddel);
+          modal.find('.modal-body #delete').attr('href', 'admin/post/delete/'+iddel);
         })
     });   
  </script>

@@ -42,29 +42,10 @@
 <!-- Gallery Posts -->
 <div class="clearfix mb25 oh">
 	<a href="category/video"><h4 class="cat-title">Văn bản ban hành </h4></a>
+	
 	</div>
 </div>
-<!-- <div class="clearfix mb25 oh">
-	<a href="category/video"><h4 class="cat-title">Video Nổi Bật</h4></a>
-	<div class="carousel-container">
-		<div class="carousel-navigation">
-			<a class="carousel-prev"></a>
-			<a class="carousel-next"></a>
-		</div>
-		<div class="carousel-item-holder gallery row" data-index="0">
-			@foreach( $videos as $video)
-			<div class="four column carousel-item">
-				<div class="video">
-				  <a href="{{$video->feture}}" title="{{$video->title}}">
-				  	<video src="{{$video->feture}}" style="width: 100%"></video>
-				  </a>       
-				</div>
-			</div>
-			@endforeach
-		</div>
-	</div>
-</div> -->
-<!-- End Gallery Posts -->
+
 @endsection
 @section('js')
 <script type="text/javascript">

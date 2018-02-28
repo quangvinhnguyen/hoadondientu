@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Tin Tức
+                <h1 class="page-header">van ban
                     <small>Cập nhật</small>
                 </h1>
             </div>
@@ -19,43 +19,35 @@
                 @endforeach
             </div>
             @endif
-            <form action="admin/post/update/{{$post->id}}" method="Post" enctype="multipart/form-data">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <form action="admin/vanban/update/{{$vanban->id}}" method="POST" enctype="multipart/form-data">
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-group">
-                    <label>Tiêu đề</label>
-                    <input type="text" name="title" id="title" class="form-control" value="{{ $post->title }}" placeholder="Nhập Tiêu Đề">
-                </div>
-                 <div class="form-group">
-                    <label>Đường dẫn</label>
-                    <input type="text" name="slug" id="slug" class="form-control" value="{{ $post->slug }}">
+                    <label>Số ký hiệu</label>
+                    <input type="text" name="sokh" id="sokh" class="form-control" value="{{ $vanban->sokh }}" placeholder="Nhập số ký hiệu ">
                 </div>
                 <div class="form-group">
-                    <label>Chuyên mục</label>
-                    <select class="form-control" name="category_id" id="category_id">
-                         @foreach($cates as $id=>$catename)
-                            <option value="{{$id}}">{{$catename}}</option>
-                        @endforeach
-                    </select>
+                    <label>Trích yếu nội dung</label>
+                    <input type="text" name="trichyeunoidung" id="trichyeunoidung" class="form-control" value="{{ $vanban->trichyeunoidung }}">
                 </div>
                 <div class="form-group">
-                    <label>Tóm Tắt</label>
-                    <textarea name="des" class="form-control" rows="3">{{ $post->description}}</textarea>
+                    <label>Ngày ban hành</label>
+                         <input type='text' class="form-control" id="datepicker" name="ngaybanhanh" value="{{ $vanban->ngaybanhanh }}"/>
                 </div>
                 <div class="form-group">
-                    <label>Nội Dung</label>
-                    <textarea name="content" id="demo" class="form-control ckeditor" rows="3">{{ $post->content}}</textarea>
+                    <label>Hình thức văn bản</label>
+                    <input type="text" name="hinhthucvanban" id="hinhthucvanban" class="form-control" value="{{$vanban->hinhthucvanban }}">
                 </div>
                 <div class="form-group">
-                    <label>Hình Ảnh</label>
-                    <input type="file" name="img_post" class="form-control">
+                    <label>Cơ quan ban hành</label>
+                    <input type="text" name="coquanbanhanh" id="coquanbanhanh" class="form-control" value="{{ $vanban->coquanbanhanh}}">
                 </div>
                 <div class="form-group">
-                    <label>Thẻ Tag ( cách nhau bằng khoảng trắng )</label>
-                    <select class="js-example-basic-multiple" name="tags[]" multiple="multiple" style="width: 100%">
-                        @foreach($tags as $id=>$tagname)
-                            <option value="{{$id}}">{{$tagname}}</option>
-                        @endforeach
-                    </select>
+                    <label>Người ký duyệt</label>
+                    <input type="text" name="nguoikyduyet" id="nguoikyduyet" class="form-control" value="{{ $vanban->nguoikyduyet}}">
+                </div>
+                <div class="form-group">
+                    <label>Tài liệu đính kèm</label>
+                    <input type="file" name="tailieu" class="form-control" placeholder="">
                 </div>
                 <button type="reset" class="btn btn-default">Làm Mới</button>
                 <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
@@ -70,25 +62,20 @@
 @endsection
 @section('script')
 <script src="js/slug.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
-    $(document).ready(function(){
-        var options = {
-                filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
-                filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
-                filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
-                filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
-              };
-        CKEDITOR.replace('demo', options);
-         $('#title').keyup(function(event) {
-            var title = $('#title').val();
-            var slug = ChangeToSlug(title);
-            $('#slug').val(slug);
-        });
-        $('.js-example-basic-multiple').select2();
-        $('.js-example-basic-multiple').select2().val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger('change');
-        $('#category_id').val({{$post->category_id}});
-    });
-</script>
+            $(document).ready(
+                    function () {
+                        $("#datepicker").datepicker({
+                            dateFormat: 'dd-mm-yy',
+                            changeMonth: true, //Tùy chọn này cho phép người dùng chọn tháng
+                            changeYear: true //Tùy chọn này cho phép người dùng lựa chọn từ phạm vi năm
+                        });
+                    }
+            );
+        </script>
 <link rel="stylesheet" type="text/css" href="css/select2.min.css">
 <script src="js/select2.min.js"></script>
 <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
