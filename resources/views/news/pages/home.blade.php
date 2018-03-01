@@ -42,7 +42,28 @@
 <!-- Gallery Posts -->
 <div class="clearfix mb25 oh">
 	<a href="category/video"><h4 class="cat-title">Văn bản ban hành </h4></a>
-	
+
+
+	<table>
+  <thead>
+  <tr>
+     <th>Cơ quan ban hành</th>
+	 <th>Trích yếu nội dung</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+	@foreach($vanbans as $vanban)
+  <tr>
+  <td>{{$vanban->coquanbanhanh}}</td>
+     <td>{{$vanban->trichyeunoidung}}</td>
+  </tr>
+  @endforeach
+  </tbody>
+ 
+</table>
+
+
 	</div>
 </div>
 

@@ -8,14 +8,15 @@ use App\Category;
 use App\File;
 use App\Tag;
 use App\Admin;
+use App\vanban;
 
 class PagesController extends Controller
 {
     public function getindex()
-    {
+    {   $vanbans = vanban::all();
         $cates = Category::where('name','!=','video')->get();
         $videos = Post::where('post_type','=','video')->take(5)->orderBy('created_at','des')->get();
-        return view('news.pages.home',['cates'=>$cates,'videos'=>$videos]);
+        return view('news.pages.home',['cates'=>$cates,'videos'=>$videos,'vanbans'=>$vanbans]);
     }
     public function getCategory($slug)
     {

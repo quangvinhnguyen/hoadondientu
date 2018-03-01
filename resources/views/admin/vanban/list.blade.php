@@ -107,7 +107,7 @@
           var iddel = button.data('id')
           var modal = $(this)
           modal.find('.modal-body #del-id').html(iddel);
-          modal.find('.modal-body #delete').attr('href', 'admin/post/delete/'+iddel);
+          modal.find('.modal-body #delete').attr('href', 'admin/vanban/delete/'+iddel);
         })
     });   
  </script>
