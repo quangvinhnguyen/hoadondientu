@@ -10,10 +10,10 @@ use Validator;
 use Session;
 class vanbanController extends Controller
 {
-public function getdata(){
+public function getdetail($id){
 
-    $vanban = vanban::all();
-    dd($vanban);
+    $vanban = vanban::find($id);
+    return view('news..pages.vanbandetail',['vanban'=>$vanban]);
 }
 public function getList()
 {

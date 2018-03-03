@@ -83,4 +83,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         });
     });
 });
-Route::get('test','vanbanController@getdata');
+Route::get('vanban/detail/{id}','vanbanController@getdetail');

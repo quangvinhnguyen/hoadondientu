@@ -41,10 +41,10 @@
 <!-- End Carousel Posts -->
 <!-- Gallery Posts -->
 <div class="clearfix mb25 oh">
-	<a href="category/video"><h4 class="cat-title">Văn bản ban hành </h4></a>
+	<a href="#"><h4 class="cat-title">Văn bản ban hành </h4></a>
 
 
-	<table>
+	<table style="width:100%">
   <thead>
   <tr>
      <th>Cơ quan ban hành</th>
@@ -56,7 +56,7 @@
 	@foreach($vanbans as $vanban)
   <tr>
   <td>{{$vanban->coquanbanhanh}}</td>
-     <td>{{$vanban->trichyeunoidung}}</td>
+     <td><a href="vanban/detail/{{ $vanban->id }} " style='color: blue'>{{$vanban->trichyeunoidung}}</a></td>
   </tr>
   @endforeach
   </tbody>
