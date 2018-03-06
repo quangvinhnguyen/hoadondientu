@@ -671,7 +671,7 @@ footer .widget-title {
 }
 
 .tabs-widget .tab-links li a {
-    font-family: 'PT Sans';
+    /* font-family: 'PT Sans'; */
     color: #5a5a5a;
     font-weight: bold;
     font-size: 11px;
@@ -755,7 +755,7 @@ footer .widget-title {
 }
 
 .tabs-widget > div h3 {
-    font-family: 'PT Sans';
+    /* font-family: 'PT Sans'; */
     margin: 0 0 4px 0px;
     line-height: 17px;
     max-height: 34px;

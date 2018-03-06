@@ -13,7 +13,8 @@ class vanbanController extends Controller
 public function getdetail($id){
 
     $vanban = vanban::find($id);
-    return view('news..pages.vanbandetail',['vanban'=>$vanban]);
+    $vanbankhac = vanban::where('id','!=',$id)->get();
+    return view('news..pages.vanbandetail',['vanban'=>$vanban,'vanbankhac'=>$vanbankhac]);
 }
 public function getList()
 {
