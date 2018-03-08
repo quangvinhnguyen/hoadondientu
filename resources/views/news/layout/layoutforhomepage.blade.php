@@ -27,5 +27,6 @@
 	<!-- Import js -->
 	@include('news.partials.importjs')
 	@yield('js')
+	
 </body>
 </html>

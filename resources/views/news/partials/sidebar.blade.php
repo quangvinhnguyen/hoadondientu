@@ -80,13 +80,13 @@
 			<h3 class="widget-title">Fanpage Facebook </h3>
 			<iframe src="http://www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/Hóa-đơn-điện-tử-Visnam-323344591505075	&amp;width=285&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false&amp;height=300" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
 		</li>
-		<li class="widget widget_tag_cloud clearfix">
+		<!-- <li class="widget widget_tag_cloud clearfix">
 			<h3 class="widget-title">Tags</h3>
 			<div class="tagcloud">
 				@foreach($tags as $tag)
 					<a href="tag/{{ $tag->slug }}" title="3 topics" style="font-size: 22pt;">{{ $tag->name }}</a>
 				@endforeach
 			</div>
-		</li>
+		</li> -->
 	</ul>
 </aside>
