@@ -155,7 +155,7 @@ body > header .inner-header {
 
 .container .inner-container {
     /* width: 960px; */
-    margin: 22.5px 5% 0 5%;
+    margin: 110.5px 5% 0 5%;
 }
 
 .post-title {
@@ -2105,5 +2105,15 @@ input[type="submit"]:hover {
     padding: 10px;
     background: #000;
     background: rgba(0, 0, 0, .8);
-    background: url(http://www.htmltocss.com/rgbatopng.php?rgba=0,0,0,0.8)\0/;
+    background: url(http://www.htmltocss.com/rgbatopng.php?rgba=0,0,0,0.8);
 }
+
+    .menu{
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+    }
+    .flexslider{
+        margin-top: 108px;
+    }
+

@@ -84,3 +84,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     });
 });
 Route::get('vanban/detail/{id}','vanbanController@getdetail');
+Route::get('test','khachhangController@getinfo');
+Route::prefix('khachhang')->group(function () {
+    Route::get('register', 'khachhangController@getRegister');
+    Route::get('data', 'khachhangController@dataTable');
+    Route::post('add', 'khachhangController@postAdd');
+});

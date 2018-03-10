@@ -1,5 +1,5 @@
 <!-- Menu -->
-<header class="clearfix">
+<header class="clearfix menu">
 	<a href="" class="pull-left"><img alt="" src="images/logo/newsmall.png"></a>
 	<nav id="main-menu" class="right navigation">
 		<ul class="sf-menu no-bullet inline-list m0">
