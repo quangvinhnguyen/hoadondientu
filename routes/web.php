@@ -11,7 +11,7 @@
 |
 */
 /* Route for user */
-Route::get('', 'PagesController@getindex');
+Route::get('', 'PagesController@getindex')->name('home');
 /* Display front */
 Route::get('category/{slug}','PagesController@getCategory');
 Route::get('post/{slug}.html','PagesController@getPost');
@@ -86,7 +86,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 Route::get('vanban/detail/{id}','vanbanController@getdetail');
 Route::get('test','khachhangController@getinfo');
 Route::prefix('khachhang')->group(function () {
-    Route::get('register', 'khachhangController@getRegister');
+    Route::get('', 'khachhangController@getRegister');
     Route::get('data', 'khachhangController@dataTable');
-    Route::post('add', 'khachhangController@postAdd');
+    Route::post('register', 'khachhangController@register');
+    Route::get('dangkythanhcong', function(){
+        return view('news.pages.khachhang.camon');
+    })->name('thanks');
 });

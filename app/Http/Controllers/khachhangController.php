@@ -19,23 +19,23 @@ class khachhangController extends Controller
     {
     return view('news.pages.khachhang.register');
     }
-    public function vanbanAdd(Request $request)
+    public function register(Request $request)
     {
     $rules= [
-            'sokh'=>'required',
-            'trichyeunoidung' =>'required',
-            'ngaybanhanh'=> 'required',
-            'hinhthucvanban'=> 'required',
-            'coquanbanhanh'=> 'required',
-            'nguoikyduyet'=> 'required',
+            'mast'=>'required|max:10',
+            'tendv' =>'required|max:180',
+            'dcdkkd'=> 'required|max:300',
+            'nguoilienhe'=> 'required|max:180',
+            'email'=> 'required|email',
+            'dtdd'=> 'required',
             ];
     $msg = [
-            'sokh.required'=>'Không được bỏ trống Số ký hiệu.',
-            'trichyeunoidung.required'=>'Không được bỏ trống Trích yếu nội dung.',
-            'ngaybanhanh.required'=>'Không được bỏ trống Ngày ban hành.',
-            'hinhthucvanban.required'=>'Không được bỏ trống Hình thức văn bản.',
-            'coquanbanhanh.required'=>'Không được bỏ trống Cơ quan ban hành.',
-            'nguoikyduyet.required'=>'Không được bỏ trống Người ký duyệt.',
+            'mast.required'=>'Không được bỏ trống mã số thuế gồm 10 số.',
+            'tendv.required'=>'Không được bỏ trống tên đơn vị.',
+            'dcdkkd.required'=>'Không được bỏ trống địa chỉ đăng ký kinh doanh.',
+            'nguoilienhe.required'=>'Không được bỏ trống người liên hệ.',
+            'email.required'=>'phải nhập đầy đủ đúng cú phap vd :example@gmail.com',
+            'dtdd.required'=>'Đề nghị nhập số điện thoại.',
             ];
     $validator = Validator::make($request->all(), $rules , $msg);
 
@@ -44,27 +44,18 @@ class khachhangController extends Controller
                     ->withErrors($validator)
                     ->withInput();
     } else {
-        $vanban = new vanban();
-        $vanban->sokh = $request->input('sokh');
-        $vanban->trichyeunoidung = $request->input('trichyeunoidung');
-        $vanban->ngaybanhanh = $request->input('ngaybanhanh');
-        $vanban->hinhthucvanban = $request->input('hinhthucvanban');
-        $vanban->coquanbanhanh = $request->input('coquanbanhanh');
-        $vanban->nguoikyduyet = $request->input('nguoikyduyet');
+        $khachhang = new khachhang();
+        $khachhang->mast = $request->input('mast');
+        $khachhang->tendv = $request->input('tendv');
+        $khachhang->dcdkkd = $request->input('dcdkkd');
+        $khachhang->nguoilienhe = $request->input('nguoilienhe');
+        $khachhang->email = $request->input('email');
+        $khachhang->dtdd = $request->input('dtdd');
         //Upload file
-        if($request->hasFile('tailieu')){
-            $file = $request->file('tailieu');
-            $file_name = $file->getClientOriginalName();
-            $random_file_name = str_random(4).'_'.$file_name;
-            while(file_exists('upload/vanbans/'.$random_file_name)){
-                $random_file_name = str_random(4).'_'.$file_name;
-            }
-            $file->move('upload/vanbans',$random_file_name);
-            $vanban->tailieu = 'upload/vanbans/'.$random_file_name;
-        } else $vanban->tailieu='';
-        $vanban->save();
+        
+        $khachhang->save();
     }
     Session::flash('flash_success','Thêm thành công.');
-    return redirect()->route('list-vanban');
+    return redirect()->route('thanks');
     }
 }

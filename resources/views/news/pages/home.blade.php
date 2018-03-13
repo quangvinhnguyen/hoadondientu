@@ -6,7 +6,7 @@
 <h2 >Đăng ký</h2>
 		<div class="post-image">	 
 			<figure>
-				<a href=""><img src="images/DangKy.png" alt=""></a>
+				<a href="/khachhang"><img src="images/DangKy.png" alt=""></a>
 			</figure>
 		</div>
 		<div class="post-container">

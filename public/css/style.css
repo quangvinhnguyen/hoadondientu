@@ -319,6 +319,12 @@ h4.post-title {
     margin-left: 10px;
     cursor: pointer;
 }
+#formdangky{
+    margin-left:10px;
+}
+span{
+    color:red;
+}
 
 /*-------------------------------------------------*/
 /* =  Flexslider
