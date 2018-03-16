@@ -65,6 +65,16 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="admin/khachhang"><i class="fa fa-table fa-fw"></i> Khách hàng <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/khachhang">Danh Sách</a>
+                    </li>
+                   
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
 
             <li>
                 <a href="admin/author"><i class="fa fa-users fa-fw"></i> Quản lý Author</a>

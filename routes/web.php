@@ -54,6 +54,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::post('update/{id}', 'vanbanController@vanbanUpdate');
         Route::get('delete/{id}', 'vanbanController@getDelete');
     });
+
+       /*Group khachhang*/
+       Route::prefix('khachhang')->group(function () {
+        Route::get('/', 'khachhangController@getList')->name('list-khachhang');
+        Route::get('delete/{id}', 'khachhangController@getDelete');
+    });
     
     /* Group for admin */
     Route::middleware(['role'])->group(function () {
