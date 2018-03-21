@@ -8,6 +8,7 @@ use App\khachhang;
 use Auth;
 use Validator;
 use Session;
+use Mail;
 class khachhangController extends Controller
 {
     public function getinfo(){
@@ -52,7 +53,16 @@ class khachhangController extends Controller
         $khachhang->email = $request->input('email');
         $khachhang->dtdd = $request->input('dtdd');
         //Upload file
-        
+        if($request->hasFile('tailieu')){
+            $file = $request->file('tailieu');
+            $file_name = $file->getClientOriginalName();
+            $random_file_name = str_random(4).'_'.$file_name;
+            while(file_exists('upload/khachhangs/'.$random_file_name)){
+                $random_file_name = str_random(4).'_'.$file_name;
+            }
+            $file->move('upload/khachhangs',$random_file_name);
+            $khachhang->tailieu = 'upload/khachhangs/'.$random_file_name;
+        } ;
         $khachhang->save();
     }
     Session::flash('flash_success','Thêm thành công.');

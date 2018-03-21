@@ -47,7 +47,11 @@
                 <div class="form-group">
                     <label>Điện thoại bàn</label>
                     <input type="text" name="dtb" id="dtb" class="form-control" value="{{ old('dtb')}}">
-                </div>    
+                </div> 
+                <div class="form-group">
+                    <label>Tài liệu đính kèm (file logo hoặc file hóa đơn mẫu của đơn vị )</label>
+                    <input type="file" name="tailieu" class="form-control" placeholder="">
+                </div>   
             <div class="text-center">           
                 <button type="reset" class="btn" id="follow-button">Làm Mới</button>
                 <button type="submit" class="btn">Đăng ký</button>

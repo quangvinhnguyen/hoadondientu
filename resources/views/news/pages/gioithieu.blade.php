@@ -12,8 +12,8 @@
 
         <h4>+ Dễ dàng truy xuất</h4>
 
-        <iframe width="430" height="316" src="https://www.youtube.com/embed/6Ujjubv_G3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <iframe width="430" height="316" src="https://www.youtube.com/embed/McJbBukFB14" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="860" height="316" src="https://www.youtube.com/embed/6Ujjubv_G3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+       
         <h4>Đáp ứng nhu cầu ngày càng gia tăng của các doanh nghiệp về hoá đơn điện tử, Visnam cung cấp phần mềm xuất hoá đơn điện tử tiện lợi, đơn giản và dễ sử dụng nhất cho người dùng.</h4>
 </article>
 </section>
