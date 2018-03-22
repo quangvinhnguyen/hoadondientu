@@ -21,7 +21,6 @@ Route::get('search','PagesController@getSearch')->name('search');
 Route::get('contact.html','PagesController@getContact');
 Route::get('huongdan','PagesController@gethuongdan');
 Route::get('gioithieu','PagesController@getgioithieu');
-
 Route::get('login', 'LoginController@getLogin');
 Route::post('login', 'LoginController@postLogin')->name('login');
 Route::get('logout', 'LoginController@getLogout');

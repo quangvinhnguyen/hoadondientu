@@ -4,7 +4,7 @@
 	<nav id="main-menu" class="right navigation">
 		<ul class="sf-menu no-bullet inline-list m0">
 			<li><a href="gioithieu">Giới thiệu </a></li>
-			<li><a href="#">Tải phần mềm</a></li>
+			<li><a onclick="window.location= '/upload/filedowload/vHoadon4.5.5.376.zip'; return false;">Tải phần mềm</a></li>
 			@foreach ($categories as $cate)
 				<li>
 					<a href="category/{{ $cate->slug }}">{{ $cate->name }}</a>

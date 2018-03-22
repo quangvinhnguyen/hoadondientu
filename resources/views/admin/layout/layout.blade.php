@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
-    <title>Technology News </title>
+    <title>V-hoadon </title>
     
     <base href="{{ asset('') }}"></base>
-
+    <link rel="shortcut icon" href="images/logo/1117.png" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 

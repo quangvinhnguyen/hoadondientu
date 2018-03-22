@@ -52,6 +52,7 @@ class khachhangController extends Controller
         $khachhang->nguoilienhe = $request->input('nguoilienhe');
         $khachhang->email = $request->input('email');
         $khachhang->dtdd = $request->input('dtdd');
+        $khachhang->dtb = $request->input('dtb');
         //Upload file
         if($request->hasFile('tailieu')){
             $file = $request->file('tailieu');
@@ -64,6 +65,20 @@ class khachhangController extends Controller
             $khachhang->tailieu = 'upload/khachhangs/'.$random_file_name;
         } ;
         $khachhang->save();
+        $data = array(
+            'email' => $request->email,
+            'tendv' => $request->tendv,
+            'mast' => $request->mast,
+            'dcdkkd' => $request->dcdkkd,
+            'dtdd' => $request->dtdd,
+            'dtb' => $request->dtb,
+            'tennglh'=> $request->nguoilienhe,
+        );
+        Mail::send('emails.remail', $data, function($msg) use ($data) {
+            $msg->from($data['email']);
+            $msg->to('hiepnt@visnam.com');
+            $msg->subject('Đăng ký Hóa đơn điện tử');
+        });
     }
     Session::flash('flash_success','Thêm thành công.');
     return redirect()->route('thanks');

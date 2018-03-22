@@ -19,8 +19,8 @@ class CreateKhachhangTable extends Migration
             $table->string('tendv')->nullable();
             $table->string('dcdkkd')->nullable();
             $table->string('nguoilienhe')->nullable();
-            $table->integer('dtdd')->nullable();
-            $table->integer('dtb')->nullable();
+            $table->string('dtdd')->nullable();
+            $table->string('dtb')->nullable();
             $table->string('email')->nullable();
             $table->string('tailieu')->nullable();
             $table->timestamps();

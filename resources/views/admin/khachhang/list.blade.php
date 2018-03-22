@@ -49,11 +49,6 @@
                             <td>{{ $khachhang->dtdd }}</td>
                             <td>{{ $khachhang->dtb }}</td>
                             <td>
-                                @if(Auth::user()->name == "admin")
-                                <a href="admin/khachhang/update/{{$khachhang->id}}" class="btn btn-info btn-sm">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa 
-                                </a>
-                                @endif
                                 <button data-id="{{$khachhang->id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
                                     <i class="fa fa-trash" aria-hidden="true"></i> Xoá
                                 </button>
