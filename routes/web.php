@@ -19,6 +19,7 @@ Route::get('tag/{tag}','PagesController@getTag');
 Route::get('author/{name}','PagesController@getAuthor');
 Route::get('search','PagesController@getSearch')->name('search');
 Route::get('contact.html','PagesController@getContact');
+Route::post('lienhe/send','PagesController@sendlienhe');
 Route::get('huongdan','PagesController@gethuongdan');
 Route::get('gioithieu','PagesController@getgioithieu');
 Route::get('login', 'LoginController@getLogin');
@@ -98,3 +99,6 @@ Route::prefix('khachhang')->group(function () {
         return view('news.pages.khachhang.camon');
     })->name('thanks');
 });
+Route::get('/demo', function () {
+    echo phpinfo(); 
+ });

@@ -9,6 +9,8 @@ use App\File;
 use App\Tag;
 use App\Admin;
 use App\vanban;
+use Session;
+use Mail;
 
 class PagesController extends Controller
 {
@@ -77,5 +79,20 @@ class PagesController extends Controller
     public function getgioithieu()
     {
     	return view('news.pages.gioithieu');
+    }
+    public function sendlienhe(Request $request)
+    {
+        $data = array(
+            'email' => $request->email,
+            'tenlh' => $request->tenlh,
+            'sdt' => $request->sdt,
+            'comment' => $request->comment,
+        );
+        Mail::send('emails.lienhe', $data, function($msg) use ($data) {
+            $msg->from($data['email']);
+            $msg->to('vinhnq@visnam.com');
+            $msg->subject('Yêu cầu khách hàng của V-hoadon');
+        });
+        return redirect()->route('thanks');
     }
 }
