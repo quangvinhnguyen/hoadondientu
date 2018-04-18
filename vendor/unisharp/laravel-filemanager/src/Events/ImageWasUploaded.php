@@ -17,6 +17,5 @@ class ImageWasUploaded
     public function path()
     {
         return $this->path;
-
     }
 }
